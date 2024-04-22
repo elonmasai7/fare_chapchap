@@ -1,0 +1,36 @@
+import telegram
+from telegram.ext import Updater, CommandHandler
+
+# Replace with your token from BotFather
+TOKEN = "YOUR_BOT_TOKEN" 
+
+# Define commands
+def start(update, context):
+  update.message.reply_text("Hello, I'm a basic Telegram bot!")
+
+def help(update, context):
+  update.message.reply_text("I can only start conversations for now")
+
+def echo(update, context):
+  update.message.reply_text(update.message.text)
+
+def error(update, context):
+  print(f"Update {update} caused error {context.error}")
+
+def main():
+
+  updater = Updater(TOKEN, use_context=True)
+
+  dp = updater.dispatcher
+
+  dp.add_handler(CommandHandler("start", start))
+  dp.add_handler(CommandHandler("help", help))
+  dp.add_handler(CommandHandler("echo", echo))
+
+  dp.add_error_handler(error)
+
+  updater.start_polling()
+  updater.idle()
+
+if __name__ == '__main__':
+  main()
