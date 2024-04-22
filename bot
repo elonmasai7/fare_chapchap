@@ -1,0 +1,73 @@
+// Payment bot class
+class PaymentBot {
+
+  // Store user details
+  private val user = User()  
+
+  // Payment methods
+  private val methods = listOf(
+      PaymentMethod.Cash, 
+      PaymentMethod.Card,
+      PaymentMethod.UPI
+  )
+
+  // Process payment
+  fun processPayment(amount: Int) {
+
+    // Get selected payment method
+    val selectedMethod = selectPaymentMethod()
+
+    // Validate method
+    if(!validateMethod(selectedMethod)) {
+      println("Invalid payment method")
+      return
+    }
+
+    // Deduct amount
+    deductAmount(amount, selectedMethod)
+
+    // Provide receipt
+    provideReceipt(amount, selectedMethod)
+  }
+
+  // Select payment method
+  private fun selectPaymentMethod(): PaymentMethod {
+    // Show available methods
+    printPaymentMethods()  
+
+    // Get user input
+    print("Select payment method: ")
+    val input = readLine()!!.toInt()
+
+    return methods[input-1] 
+  }
+
+  // Validate selected method  
+  private fun validateMethod(method: PaymentMethod): Boolean {
+    // Check if method is supported
+    return true
+  }
+
+  // Deduct amount from user balance/account  
+  private fun deductAmount(amount: Int, method: PaymentMethod) {
+    // Deduct based on method
+  }
+
+  // Provide payment receipt
+  private fun provideReceipt(amount: Int, method: PaymentMethod) {
+    // Generate and print receipt  
+  }
+
+}
+
+// Payment methods
+enum class PaymentMethod {
+  Cash,
+  Card, 
+  UPI
+}
+
+// User details
+class User {
+  // name, balance etc
+}
