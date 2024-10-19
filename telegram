@@ -1,7 +1,6 @@
 import telegram
 from telegram.ext import Updater, CommandHandler
 
-# Replace with your token from BotFather
 TOKEN = "YOUR_BOT_TOKEN" 
 
 # Define commands
