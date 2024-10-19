@@ -3,7 +3,6 @@ from telegram.ext import Updater, CommandHandler
 
 TOKEN = "YOUR_BOT_TOKEN" 
 
-# Define commands
 def start(update, context):
   update.message.reply_text("Hello, I'm a basic Telegram bot!")
 
